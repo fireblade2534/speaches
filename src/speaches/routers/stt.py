@@ -242,6 +242,7 @@ def transcribe_file(
     hotwords: Annotated[str | None, Form()] = None,
     vad_filter: Annotated[bool, Form()] = False,
 ) -> Response | StreamingResponse:
+    logger.info("VAD_FILTER",vad_filter)
     if model is None:
         model = config.whisper.model
     if language is None:
